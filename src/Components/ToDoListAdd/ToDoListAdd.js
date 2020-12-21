@@ -4,7 +4,6 @@ import './ToDoListAdd.css'
 class ToDoListAdd extends Component {
 
     state = {
-        id: Math.random(),
         task: '',
         priority: ''
     }
@@ -19,7 +18,6 @@ class ToDoListAdd extends Component {
         e.preventDefault()
         this.props.addItem(this.state)
         this.setState({
-            id: Math.random(),
             task: '',
             priority: ''
         })
@@ -30,10 +28,10 @@ class ToDoListAdd extends Component {
             <div className='to-do-list-add'>
                 <form method="post" onChange={this.handelChange} onSubmit={this.handelSubmit} >
                 <label className="task" htmlFor="task">
-                    <input type="text" id="task" placeholder='Type your task name here!' value={this.state.task} required/>
+                    <input type="text" id="task" placeholder='Type your task name here!' defaultValue={this.state.task} required/>
                 </label>
                 <label className="priority" htmlFor="priority">
-                    <input type="text" id="priority" placeholder='Type your priority here!' value={this.state.priority} required/>
+                    <input type="text" id="priority" placeholder='Type your priority here!' defaultValue={this.state.priority} required/>
                 </label>
                 <input type="submit" value='Add new task'/>
                 </form>

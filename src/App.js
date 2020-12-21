@@ -6,17 +6,17 @@ class App extends Component {
 
     state = {
         tasks: [
-            { id: 0, task: 'Create a new site', priority: 'Urgent' },
-            { id: 1, task: 'Create a new app', priority: 'Delayed' },
-            { id: 2, task: 'Create a new landing page', priority: 'Not urgent' }
+            {task: 'Create a new site', priority: 'Urgent' },
+            {task: 'Create a new app', priority: 'Delayed' },
+            {task: 'Create a new landing page', priority: 'Not urgent' }
         ]
     }
 
-    handelDelete = (id) => {
+    handelDelete = (indexSelected) => {
         const allTasks = this.state.tasks
-        const allTasksWithoutDeleted = allTasks.filter(task => {
+        const allTasksWithoutDeleted = allTasks.filter((task, index) => {
             return (
-                task.id !== id
+                index !== indexSelected
             )
         })
         this.setState({
@@ -28,7 +28,7 @@ class App extends Component {
         const tasks = this.state.tasks
         tasks.push(item)
         this.setState({
-            tasks: tasks
+            tasks
         })
     }
 

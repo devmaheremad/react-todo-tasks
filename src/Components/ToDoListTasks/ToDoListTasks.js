@@ -5,12 +5,12 @@ const ToDoListTasks = (props) => {
 
     const {tasks} = props
     const length = tasks.length
-    const showTasks = length ? tasks.map(task => {
+    const showTasks = length ? tasks.map((task, index) => {
         return (
-            <div key={task.id}>
+            <div key={index}>
                 <span className="task">{task.task}</span>
                 <span className="priority">{task.priority}</span>
-                <span className="times" onClick = {() => props.handelDelete(task.id)}>&times;</span>
+                <span className="times" onClick = {() => props.handelDelete(index)}>&times;</span>
             </div>
         )
     }) : (
