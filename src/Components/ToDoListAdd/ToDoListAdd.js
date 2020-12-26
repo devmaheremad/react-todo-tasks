@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import './ToDoListAdd.css'
+import React, {Component, Fragment} from 'react'
+import { ToDoAddForm, ToDoAddFormNameInput, ToDoAddFormNameLabel, ToDoAddFormPriorityInput, ToDoAddFormPriorityLabel, ToDoAddFormSubmit } from './ToDoListAddStyled'
 
 class ToDoListAdd extends Component {
 
@@ -25,16 +25,16 @@ class ToDoListAdd extends Component {
 
     render() {
         return (
-            <div className='to-do-list-add'>
-                <form method="post" onChange={this.handelChange} onSubmit={this.handelSubmit} >
-                <label className="task" htmlFor="task">
-                    <input type="text" id="task" placeholder='Type your task name here!' value={this.state.task} required/>
-                </label>
-                <label className="priority" htmlFor="priority">
-                    <input type="text" id="priority" placeholder='Type your priority here!' value={this.state.priority} required/>
-                </label>
-                <input type="submit" value='Add new task'/>
-                </form>
+            <div>
+                <ToDoAddForm onChange={this.handelChange} onSubmit={this.handelSubmit} >
+                <ToDoAddFormNameLabel htmlFor="task">
+                    <ToDoAddFormNameInput type="text" id="task" placeholder='Type your task name here!' value={this.state.task} required/>
+                </ToDoAddFormNameLabel>
+                <ToDoAddFormPriorityLabel htmlFor="priority">
+                    <ToDoAddFormPriorityInput type="text" id="priority" placeholder='Type your priority here!' value={this.state.priority} required/>
+                </ToDoAddFormPriorityLabel>
+                <ToDoAddFormSubmit type="submit" value='Add new task'/>
+                </ToDoAddForm>
             </div>
         )
     }

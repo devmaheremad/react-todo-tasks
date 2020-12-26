@@ -1,5 +1,5 @@
 import React from 'react'
-import './ToDoListTasks.css'
+import {ToDoTask, ToDoNoTask, ToDoTaskTHeader, Task, Priority, Times, ForFlex, TaskTitle, TaskPriority, TaskTimes} from './ToDoListTasksStyled'
 
 const ToDoListTasks = (props) => {
 
@@ -7,27 +7,27 @@ const ToDoListTasks = (props) => {
     const length = tasks.length
     const showTasks = length ? tasks.map((task, index) => {
         return (
-            <div key={index}>
-                <span className="task">{task.task}</span>
-                <span className="priority">{task.priority}</span>
-                <span className="times" onClick = {() => props.handelDelete(index)}>&times;</span>
-            </div>
+            <ForFlex key={index}>
+                <Task>{task.task}</Task>
+                <Priority>{task.priority}</Priority>
+                <Times onClick = {() => props.handelDelete(index)}>&times;</Times>
+            </ForFlex>
         )
     }) : (
-        <div className='no-tasks'>
+        <ToDoNoTask>
             <p>There Is No Task Right Now.</p>
-        </div>
+        </ToDoNoTask>
     )
 
     return (
-        <div className='to-do-list-tasks'>
-        <div className="t-header">
-            <span className="task title">Task Name</span>
-            <span className="priority title">Priority Type</span>
-            <span className="title">Action</span>
-        </div>
+        <ToDoTask>
+        <ToDoTaskTHeader>
+            <TaskTitle>Task Name</TaskTitle>
+            <TaskPriority>Priority Type</TaskPriority>
+            <TaskTimes>Action</TaskTimes>
+        </ToDoTaskTHeader>
             {showTasks}
-        </div>
+        </ToDoTask>
     )
 }
 
